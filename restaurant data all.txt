@@ -1,0 +1,33 @@
+if cursor.rowcount>0:
+                    return jsonify({"Message":"Successfully password update"}),200
+
+
+
+
+
+
+try:
+        if user_id==user[1] and user[0] is None:
+            cursor.execute(f'UPDATE tbl_restaurants_rating SET rating={rating} WHERE user_id={user_id} and restaurant_id={resturant_id}')
+            g.db.commit()
+            return jsonify({"Message":"Rating Updated add successfully"})
+    except:
+        if user_id!=user[1]:
+            cursor.execute('INSERT INTO tbl_restaurants_rating(restaurant_id,user_id,rating)VALUES(%s,%s,%s)',(resturant_id,user_id,rating))
+            g.db.commit()
+            return jsonify({"Message":"Rating add successfully"})
+    if cursor.rowcount>1:
+        return jsonify({"Message":"Successfully password update"}),200
+    return jsonify({"erroe":"Not add successfully"})
+
+
+
+
+, sort_keys=True
+
+resturant_data=[]
+    for i in one_resturant_detail:
+        data_restaurant={"Image":i[1],"Restuarant_Name":i[0],"Rating":i[2],"Review":i[3],"Start Time":i[4],"End Time":i[5],"Price":i[6]}
+        resturant_data.append(data_restaurant)
+
+user_id!=user[1] or resturant_id!=user[2] or 
